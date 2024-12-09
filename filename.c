@@ -3,7 +3,7 @@
 #include <string.h>
 #include "filename.h"
 
-void clearInputBuffer() {
+void clear_input_buffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {}
 }
@@ -31,7 +31,7 @@ char* get_valid_filename(char *text) {
         scanf("%255s", fileName);
         if (getchar() != '\n') {
             printf("Invalid input. Try again.\n");
-            clearInputBuffer();
+            clear_input_buffer();
             continue;
         }
         valid = filename_check(fileName);

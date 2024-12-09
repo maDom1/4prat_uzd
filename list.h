@@ -4,11 +4,10 @@
 #include <stdbool.h>
 
 typedef struct Node {
-    char data[256];       // String data field
-    struct Node* next;    // Pointer to the next node
+    char data[256];
+    struct Node* next;
 } Node;
 
-// Function prototypes
 Node* create_empty_list();
 bool value_exists(const Node* head, const char* val);
 Node* insert_before_value(Node* head, const char* beforeVal, const char* newVal);

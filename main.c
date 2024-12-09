@@ -22,7 +22,7 @@ int main() {
         int choice;
         if (scanf("%d", &choice) != 1 || getchar() != '\n') {
             printf("Invalid input.\n");
-            clearInputBuffer(); // Clear remaining input
+            clear_input_buffer();
             continue;
         }
 
@@ -34,7 +34,7 @@ int main() {
                     char confirm;
                     if (scanf(" %c", &confirm) != 1 || getchar() != '\n') {
                         printf("Invalid input.\n");
-                        clearInputBuffer();
+                        clear_input_buffer();
                         break;
                     }
                     if (confirm == 'y') {
@@ -59,7 +59,7 @@ int main() {
                     char confirm;
                     if (scanf("%c", &confirm) != 1 || getchar() != '\n') {
                         printf("Invalid input. Please enter 'y' or 'n'.\n");
-                        clearInputBuffer();
+                        clear_input_buffer();
                         break;
                     }
 
@@ -79,7 +79,7 @@ int main() {
                     break;
                 }
 
-                clear_list_recursively(&head); // Clear current list if any
+                clear_list_recursively(&head);
                 head = read_list_from_file(filename);
                 if (head != NULL) {
                     printf("Data successfully read from file '%s'.\n", filename);
@@ -87,7 +87,7 @@ int main() {
                     printf("Failed to create the list from file. The list is empty.\n");
                 }
 
-                free(filename); // Free allocated memory for the file name
+                free(filename);
                 break;
             }
 
@@ -100,7 +100,7 @@ int main() {
                 int printChoice;
                 if (scanf("%d", &printChoice) != 1 || getchar() != '\n') {
                     printf("Invalid input.\n");
-                    clearInputBuffer();
+                    clear_input_buffer();
                     break;
                 }
 
@@ -116,7 +116,7 @@ int main() {
                     }
                     print_list_to_file(head, outFile);
                     printf("List printed to file '%s'.\n", outFile);
-                    free(outFile); // Free allocated memory
+                    free(outFile);
                 } else {
                     printf("Invalid input. Try again.\n");
                 }
@@ -124,43 +124,43 @@ int main() {
             }
 
             case 3: {
-                char newVal[256];
+                char newValue[256];
 
                 if (!head) {
                     printf("The list is empty. Enter the first element's value: ");
-                    if (scanf("%255s", newVal) != 1 || getchar() != '\n') {
+                    if (scanf("%255s", newValue) != 1 || getchar() != '\n') {
                         printf("Invalid input.\n");
-                        clearInputBuffer();
+                        clear_input_buffer();
                         break;
                     }
 
-                    head = insert_before_value(head, "", newVal);
-                    printf("Value '%s' added as the first element in the list.\n", newVal);
+                    head = insert_before_value(head, "", newValue);
+                    printf("Value '%s' added as the first element in the list.\n", newValue);
                     break;
                 }
 
-                char beforeVal[256];
+                char beforeValue[256];
                 printf("Enter the value before which to insert: ");
-                if (scanf("%255s", beforeVal) != 1 || getchar() != '\n') {
+                if (scanf("%255s", beforeValue) != 1 || getchar() != '\n') {
                     printf("Invalid input.\n");
-                    clearInputBuffer();
+                    clear_input_buffer();
                     break;
                 }
 
-                if (!value_exists(head, beforeVal)) {
-                    printf("Error: Value '%s' not found in the list. Insertion failed.\n", beforeVal);
+                if (!value_exists(head, beforeValue)) {
+                    printf("Error: Value '%s' not found in the list. Insertion failed.\n", beforeValue);
                     break;
                 }
 
                 printf("Enter the new element's value: ");
-                if (scanf("%255s", newVal) != 1 || getchar() != '\n') {
+                if (scanf("%255s", newValue) != 1 || getchar() != '\n') {
                     printf("Invalid input.\n");
-                    clearInputBuffer();
+                    clear_input_buffer();
                     break;
                 }
 
-                head = insert_before_value(head, beforeVal, newVal);
-                printf("Value '%s' inserted successfully before '%s'.\n", newVal, beforeVal);
+                head = insert_before_value(head, beforeValue, newValue);
+                printf("Value '%s' inserted successfully before '%s'.\n", newValue, beforeValue);
                 break;
             }
 
@@ -173,7 +173,7 @@ int main() {
                     char confirm;
                     if (scanf(" %c", &confirm) != 1 || getchar() != '\n') {
                         printf("Invalid input.\n");
-                        clearInputBuffer();
+                        clear_input_buffer();
                         break;
                     }
                     if (confirm == 'y' || confirm == 'Y') {
@@ -195,7 +195,6 @@ int main() {
         }
     }
 
-    // Free memory before exit
     clear_list_recursively(&head);
     return 0;
 }

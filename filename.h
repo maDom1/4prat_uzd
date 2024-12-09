@@ -3,13 +3,10 @@
 
 #define FILE_NAME_SIZE 256
 
-// Clears the input buffer
-void clearInputBuffer();
+void clear_input_buffer();
 
-// Validates if a file name ends with .txt
 int filename_check(char fileName[]);
 
-// Gets a valid file name with .txt extension
 char* get_valid_filename(char *text);
 
 #endif

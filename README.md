@@ -38,16 +38,17 @@ const char* beforeval         // Nėra didžiosios raidės.
 
 ### 1.3. Funkcijų Vardai  
 
-- Funkcijos pavadinimai turi būti rašomi mažosiomis raidėmis. Jeigu pavadinimas sudaro kelis žodžius, jie turi būti sujungti naudojant `_`.
+- Funkcijos pavadinimai turi būti rašomi mažosiomis raidėmis.
+- Jeigu pavadinimas sudaro kelis žodžius, jie turi būti sujungti naudojant `_`.
 
 ```c
 /* OK */
-void test_create_empty_list
-int main
+void test_create_empty_list()
+int main()
 
 /* Wrong */
-void testcreateemptylist    // Trūksta "_"
-int MAIN                    // Didžiosios raidės
+void testcreateemptylist()    // Trūksta "_"
+int MAIN()                    // Didžiosios raidės
 ```
 ## 2. Lygiavimo Taisyklės
 
